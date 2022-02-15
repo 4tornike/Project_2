@@ -51,4 +51,16 @@ public class RegisterSteps {
         page.confirmPass.sendKeys(data.password);
         return this;
     }
+
+    @Step("i am gonna accept policy privacy")
+    public RegisterSteps acceptPolicy() {
+        page.acceptPolicy.click();
+        return this;
+    }
+
+    @Step("i am gonna submit")
+    public RegisterSteps submit() {
+        page.continueBtn.click();
+        return this;
+    }
 }

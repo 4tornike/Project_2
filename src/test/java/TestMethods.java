@@ -1,8 +1,9 @@
-import Data.DBInsert;
-import Data.GetData;
+import Steps.DesktopSteps;
 import Steps.HomeSteps;
+import Steps.LeptopSteps;
 import Steps.RegisterSteps;
 import com.codeborne.selenide.Configuration;
+import io.qameta.allure.Description;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -15,6 +16,8 @@ public class TestMethods {
 
     HomeSteps homeSteps = new HomeSteps();
     RegisterSteps registerSteps = new RegisterSteps();
+    LeptopSteps leptopSteps = new LeptopSteps();
+    DesktopSteps desktopSteps = new DesktopSteps();
 
     @BeforeMethod
 
@@ -23,14 +26,13 @@ public class TestMethods {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         Configuration.browserCapabilities = options;
-//        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = true;
         open("http://tutorialsninja.com/demo/");
     }
 
-    @Test
-
+    @Test(description = "register on page")
+    @Description("i will register with driven data from database")
     public void register() {
-
         homeSteps.accountClick()
                 .registerClick();
         registerSteps.generateData()
@@ -39,7 +41,24 @@ public class TestMethods {
                 .fillEmail()
                 .fillPhone()
                 .fillPassword()
-                .ConfirmPassword();
+                .ConfirmPassword()
+                .acceptPolicy()
+                .submit();
+    }
 
+    @Test(description = "checking laptops page sorted")
+    @Description("i will go to laptops section and check sort hight > low")
+    public void checkLaptopsSort() {
+        leptopSteps.laptopsClick()
+                .sorting()
+                .checkSort();
+    }
+
+    @Test(description = "")
+    @Description("")
+    public void test3() {
+        desktopSteps.clickDesktops()
+                .clickMp3Player()
+                .moveToIpod();
     }
 }
