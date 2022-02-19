@@ -16,7 +16,7 @@ public class RegisterSteps {
         int random = (int) (Math.random() * 1000);
         String email = String.format("selenide%s@gmail.com",random);
         insert.insertData("pharsman","kind","55234811032","secret",
-                "new-york",email,"georgea","merryland","new-york",10);
+                "new-york",email,"Georgia","Tbilisi","new-york",10);
         return this;
     }
 
