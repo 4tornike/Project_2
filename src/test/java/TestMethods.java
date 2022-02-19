@@ -1,12 +1,16 @@
 import Steps.*;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.*;
+
+import static com.codeborne.selenide.Configuration.savePageSource;
 import static com.codeborne.selenide.Selenide.*;
 
 @Listeners({TestAllureListener.class})
@@ -24,8 +28,8 @@ public class TestMethods {
     @BeforeMethod
     @Story("init things")
     public void setUp() {
+        SelenideLogger.addListener("AllureSelenide",new AllureSelenide().screenshots(true).savePageSource(false));
         Configuration.timeout = 7000;
-        Configuration.screenshots = true;
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         Configuration.browserCapabilities = options;

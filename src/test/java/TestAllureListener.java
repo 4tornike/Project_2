@@ -20,10 +20,6 @@ public class TestAllureListener implements ITestListener {
 
     @Attachment(value = "Page Screenshot",type = "image/png")
     public static byte[] getScreenshot(byte[] screenShot) throws IOException {
-//        WebDriver driver = getWebDriver();
-//        File screenshot = ((TakeScreenshot) driver).getScree
-//        return Files.toByteArray(screenshot);
-//        return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
         return screenShot;
     }
 
