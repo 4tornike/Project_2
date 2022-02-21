@@ -9,6 +9,11 @@ public class HomePage {
 
     public SelenideElement
             myAccount = $(".fa.fa-user"),
-            register = $(byText("Register"));
+            register = $(byText("Register")),
+            laptops = $(byText("Laptops & Notebooks")),
+            showLeptops = $(byText("Show All Laptops & Notebooks")),
+            desktop = $(byText("Desktops")),
+            showDesktops = $(byText("Show All Desktops"));
+
 
 }
