@@ -162,7 +162,7 @@ public class CartSteps {
         return this;
     }
 
-    @Step("check subtotal is correct")
+    @Step("check total is correct")
     public CartSteps checkTotal() {
         page.confirmOrder.click();
         page.total1.should(Condition.exist);
