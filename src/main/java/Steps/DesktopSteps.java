@@ -26,24 +26,18 @@ public class DesktopSteps {
         return this;
     }
 
-    @Step("go to mp3 player")
-    public DesktopSteps clickMp3Player() {
-        page.mp3Player.click();
-        return this;
-    }
-
     @Step("move to ipod shuffle")
-    public DesktopSteps moveToIpod() {
-        page.ipod.scrollIntoView(true);
-        String actualToolTip = page.ipod.getAttribute("title");
-        String expectedToolTip = "iPod Nano";
+    public DesktopSteps moveToMac() {
+        page.mac.scrollIntoView(true);
+        String actualToolTip = page.mac.getAttribute("title");
+        String expectedToolTip = "MacBook Air";
         Assert.assertEquals(expectedToolTip,actualToolTip);
         return this;
     }
 
     @Step("click on ipod link")
-    public DesktopSteps clickIpod() {
-        page.ipodLink.click();
+    public DesktopSteps clickMac() {
+        page.macLink.click();
         return this;
     }
 
@@ -72,7 +66,16 @@ public class DesktopSteps {
     public DesktopSteps checkAddedByPrice() {
         String priceText = page.items.getText();
         int ind = priceText.indexOf("$");
-        String prevPrice = priceText.substring(ind + 1);
+        int ind2 = priceText.indexOf(",");
+        String prevPrice;
+        if(ind2 == (int) ind2) {
+            String prevPrice1 = priceText.substring(ind + 1,ind2);
+            String prevPrice2 = priceText.substring(ind2 + 1);
+            prevPrice = prevPrice1 + prevPrice2;
+
+        } else {
+            prevPrice = priceText.substring(ind + 1);
+        }
         double price = Double.parseDouble(prevPrice);
         if(price > 0) {
             Assert.assertTrue(true);

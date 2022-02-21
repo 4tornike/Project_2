@@ -13,7 +13,7 @@ public class RegisterSteps {
 
     @Step("generate and insert data")
     public RegisterSteps generateData() {
-        int random = (int) (Math.random() * 1000);
+        int random = (int) (Math.random() * 10000);
         String email = String.format("selenide%s@gmail.com",random);
         insert.insertData("pharsman","kind","55234811032","secret",
                 "new-york",email,"Georgia","Tbilisi","new-york",10);

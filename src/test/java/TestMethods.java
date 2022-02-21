@@ -66,18 +66,17 @@ public class TestMethods {
 
     @Test(description = "i will buy one item here",dependsOnMethods = {"register"},groups = {"Regression2"})
     @Description("i will check cart system,i will add to cart and next if it will be added by its count and price ")
-    @Story("buing an item")
+    @Story("buying an item")
     public void buyItem() {
         desktopSteps.clickDesktops()
-                .clickMp3Player()
-                .moveToIpod()
-                .clickIpod()
+                .moveToMac()
+                .clickMac()
                 .addCart()
                 .checkAddedBycount()
                 .checkAddedByPrice();
     }
 
-    @Test(description = "checkout order",dependsOnMethods = {"register","buyItem"},retryAnalyzer = Retry.class,groups = {"Regression2"})
+    @Test(description = "checkout order",dependsOnMethods = {"register","buyItem"},groups = {"Regression2"})
     @Description("i will check billing details,payment method,delivery here")
     @Story("check ordering")
     public void checkBilling() {
@@ -91,7 +90,14 @@ public class TestMethods {
                 .fillPostCode()
                 .selectCountry()
                 .selectState()
-                .clickContinue();
+                .clickContinue()
+                .clickDeliveryDetailsContinue()
+                .clickDeliveryMethodsContinue()
+                .termsClick()
+                .clickPaymentMethodsContinue()
+                .checkSubTotal()
+                .checkFlatShipping()
+                .checkTotal();
         Assert.fail();
     }
 

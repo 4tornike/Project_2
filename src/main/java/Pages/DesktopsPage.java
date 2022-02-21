@@ -8,9 +8,8 @@ import static com.codeborne.selenide.Selenide.$;
 public class DesktopsPage {
 
     public SelenideElement
-            mp3Player = $(byText("MP3 Players (4)")),
-            ipod = $(byTitle("iPod Nano")),
-            ipodLink = $(byXpath("//a[text()='iPod Nano']")),
+            mac = $(byTitle("MacBook Air")),
+            macLink = $(byXpath("//a[text()='MacBook Air']")),
             cart = $("#button-cart"),
             items = $("#cart-total"),
             checkout = $("strong .fa-share");
