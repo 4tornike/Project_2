@@ -76,7 +76,7 @@ public class TestMethods {
                 .checkAddedByPrice();
     }
 
-    @Test(description = "checkout order",dependsOnMethods = {"register","buyItem"},groups = {"Regression2"})
+    @Test(description = "checkout order",retryAnalyzer = Retry.class,dependsOnMethods = {"register","buyItem"},groups = {"Regression2"})
     @Description("i will check billing details,payment method,delivery here")
     @Story("check ordering")
     public void checkBilling() {
