@@ -68,7 +68,7 @@ public class DesktopSteps {
         int ind = priceText.indexOf("$");
         int ind2 = priceText.indexOf(",");
         String prevPrice;
-        if(ind2 == (int) ind2) {
+        if(ind2 != -1) {
             String prevPrice1 = priceText.substring(ind + 1,ind2);
             String prevPrice2 = priceText.substring(ind2 + 1);
             prevPrice = prevPrice1 + prevPrice2;

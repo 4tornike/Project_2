@@ -115,7 +115,7 @@ public class CartSteps {
         int Firstind = text1.indexOf("$");
         int Firstind2 = text1.indexOf(",");
         String FirstprevSubTotal;
-        if(Firstind2 == (int) Firstind2) {
+        if(Firstind2 != -1) {
             String FirstprevSubTotal1 = text1.substring(Firstind + 1,Firstind2);
             String FirstprevSubTotal2 = text1.substring(Firstind2 + 1);
             FirstprevSubTotal = FirstprevSubTotal1 + FirstprevSubTotal2;
@@ -130,7 +130,7 @@ public class CartSteps {
         int Secondind = text2.indexOf("$");
         int Secondind2 = text2.indexOf(",");
         String SecondprevSubTotal;
-        if(Secondind2 == (int) Secondind2) {
+        if(Secondind2 != -1) {
             String SecondPrevSubTotal1 = text2.substring(Secondind + 1,Secondind2);
             String SecondprevSubTotal2 = text2.substring(Secondind2 + 1);
             SecondprevSubTotal = SecondPrevSubTotal1 + SecondprevSubTotal2;
@@ -166,11 +166,11 @@ public class CartSteps {
     public CartSteps checkTotal() {
         page.confirmOrder.click();
         page.total1.should(Condition.exist);
-        String text1  = page.total1.text();
+        String text1  = page.total1.getOwnText();
         int Firstind = text1.indexOf("$");
         int Firstind2 = text1.indexOf(",");
         String FirstprevTotal;
-        if(Firstind2 == (int) Firstind2) {
+        if(Firstind2 != -1) {
             String FirstprevTotal1 = text1.substring(Firstind + 1,Firstind2);
             String FirstprevTotal2 = text1.substring(Firstind2 + 1);
             FirstprevTotal = FirstprevTotal1 + FirstprevTotal2;
@@ -185,7 +185,7 @@ public class CartSteps {
         int Secondind = text2.indexOf("$");
         int Secondind2 = text2.indexOf(",");
         String SecondprevTotal;
-        if(Secondind2 == (int) Secondind2) {
+        if(Secondind2 != -1) {
             String SecondPrevTotal1 = text2.substring(Secondind + 1,Secondind2);
             String SecondprevTotal2 = text2.substring(Secondind2 + 1);
             SecondprevTotal = SecondPrevTotal1 + SecondprevTotal2;
